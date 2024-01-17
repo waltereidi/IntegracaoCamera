@@ -18,11 +18,11 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   </head>
   <body>
-    <h1>Demo - Native camera in browsers</h1>
+    <h1 id="displayTag">Tamanho de display</h1>
 
     <!-- The `label` is attached to the hidden file input -->
     <label for="cameraFileInput">
-      <span class="btn">Open camera</span>
+      <span class="btn">Abrir Camera</span>
 
       <!-- The hidden file `input` for opening the native camera -->
       <input
@@ -64,7 +64,12 @@
 </style>
 
 <script>
-        isMobile();    
+    
+        if(isMobile()){
+            $("#displayTag").text("Tamanho de display detectado = mobile");
+        }else{
+            $("#displayTag").text("Tamanho de display detectado = desktop");
+        }
 document.getElementById("cameraFileInput").addEventListener("change", function () {
         document.getElementById("pictureFromCamera").setAttribute("src", window.URL.createObjectURL(this.files[0]));
 });
